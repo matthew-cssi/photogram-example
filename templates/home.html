@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Photogram</title>
+<link rel="stylesheet" href="/stylesheets/photogram.css">
+
+
+<h1>Photogram</h1>
+
+<div id="photo-container">
+
+{% for photo in photos %}
+
+  <div class="photo">
+    <h2>{{ photo.title }}</h2>
+    <img src="{{ photo.photo_url }}" alt="Photo of {{ photo.title }}">
+    <div class="like-container">
+      <button value="{{ photo.key.urlsafe() }}">Like</button>
+      <span class="likes">{{ photo.like_count }}</span> likes
+    </div>
+  </div>
+
+{% endfor %}
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/scripts/photogram.js"></script>
